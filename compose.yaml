@@ -7,7 +7,7 @@ services:
   web:
     build: .
     container_name: tastybite_web
-    command: sh -c "python manage.py migrate && gunicorn restaurant_system.wsgi:application --bind 0.0.0.0:8000"
+    command: sh -c "python manage.py migrate && gunicorn restaurant_system.wsgi:application --bind 0.0.0.0:1011"
     volumes:
       # Mount the code so local changes reflect without rebuilding the image
       - .:/app
@@ -16,7 +16,7 @@ services:
       # Persist uploaded media files (food images, category images) across restarts
       - media_data:/app/media
     ports:
-      - "8000:8000"
+      - "1011:1011"
     environment:
       - DEBUG=True
       - SECRET_KEY=django-insecure-change-this-key-in-production-1234567890

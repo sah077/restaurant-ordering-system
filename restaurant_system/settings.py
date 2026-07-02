@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get(
 # DEBUG is True locally, but False on Render (set via environment variable).
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['54.211.188.243']
 
 # Allow all hosts if DEBUG is False and RENDER_EXTERNAL_HOSTNAME is set
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')

@@ -38,7 +38,7 @@ RUN mkdir -p /app/staticfiles /app/media
 RUN python manage.py collectstatic --no-input
 
 # Expose the port Django/Gunicorn will run on
-EXPOSE 8000
+EXPOSE 1011
 
 # Run database migrations, then start the Gunicorn production server
-CMD ["sh", "-c", "python manage.py migrate && gunicorn restaurant_system.wsgi:application --bind 0.0.0.0:8000"]
+CMD ["sh", "-c", "python manage.py migrate && gunicorn restaurant_system.wsgi:application --bind 0.0.0.0:1011"]
