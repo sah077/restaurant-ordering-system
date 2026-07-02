@@ -1,0 +1,234 @@
+[
+  {
+    "model": "menu.category",
+    "pk": 1,
+    "fields": {
+      "name": "Appetizers",
+      "slug": "appetizers",
+      "description": "Start your meal with our delicious appetizers.",
+      "image": ""
+    }
+  },
+  {
+    "model": "menu.category",
+    "pk": 2,
+    "fields": {
+      "name": "Main Course",
+      "slug": "main-course",
+      "description": "Hearty and satisfying main dishes.",
+      "image": ""
+    }
+  },
+  {
+    "model": "menu.category",
+    "pk": 3,
+    "fields": {
+      "name": "Desserts",
+      "slug": "desserts",
+      "description": "Sweet treats to end your meal.",
+      "image": ""
+    }
+  },
+  {
+    "model": "menu.category",
+    "pk": 4,
+    "fields": {
+      "name": "Beverages",
+      "slug": "beverages",
+      "description": "Refreshing drinks to complement your food.",
+      "image": ""
+    }
+  },
+  {
+    "model": "menu.fooditem",
+    "pk": 1,
+    "fields": {
+      "category": 1,
+      "name": "Chicken Momo",
+      "slug": "chicken-momo",
+      "description": "Steamed dumplings filled with spiced minced chicken, served with tomato achar.",
+      "price": "250.00",
+      "image": "",
+      "is_available": true,
+      "is_featured": true,
+      "created_at": "2026-07-02T10:00:00Z",
+      "updated_at": "2026-07-02T10:00:00Z"
+    }
+  },
+  {
+    "model": "menu.fooditem",
+    "pk": 2,
+    "fields": {
+      "category": 1,
+      "name": "Chili Paneer",
+      "slug": "chili-paneer",
+      "description": "Crispy cottage cheese tossed in a spicy, tangy sauce with bell peppers and onions.",
+      "price": "280.00",
+      "image": "",
+      "is_available": true,
+      "is_featured": true,
+      "created_at": "2026-07-02T10:01:00Z",
+      "updated_at": "2026-07-02T10:01:00Z"
+    }
+  },
+  {
+    "model": "menu.fooditem",
+    "pk": 3,
+    "fields": {
+      "category": 1,
+      "name": "Spring Rolls",
+      "slug": "spring-rolls",
+      "description": "Crispy fried rolls stuffed with mixed vegetables, served with sweet chili sauce.",
+      "price": "220.00",
+      "image": "",
+      "is_available": true,
+      "is_featured": false,
+      "created_at": "2026-07-02T10:02:00Z",
+      "updated_at": "2026-07-02T10:02:00Z"
+    }
+  },
+  {
+    "model": "menu.fooditem",
+    "pk": 4,
+    "fields": {
+      "category": 2,
+      "name": "Chicken Biryani",
+      "slug": "chicken-biryani",
+      "description": "Fragrant basmati rice cooked with tender chicken, spices, and herbs.",
+      "price": "350.00",
+      "image": "",
+      "is_available": true,
+      "is_featured": true,
+      "created_at": "2026-07-02T10:03:00Z",
+      "updated_at": "2026-07-02T10:03:00Z"
+    }
+  },
+  {
+    "model": "menu.fooditem",
+    "pk": 5,
+    "fields": {
+      "category": 2,
+      "name": "Margherita Pizza",
+      "slug": "margherita-pizza",
+      "description": "Classic pizza topped with fresh tomato sauce, mozzarella, and basil.",
+      "price": "450.00",
+      "image": "",
+      "is_available": true,
+      "is_featured": true,
+      "created_at": "2026-07-02T10:04:00Z",
+      "updated_at": "2026-07-02T10:04:00Z"
+    }
+  },
+  {
+    "model": "menu.fooditem",
+    "pk": 6,
+    "fields": {
+      "category": 2,
+      "name": "Beef Chow Mein",
+      "slug": "beef-chow-mein",
+      "description": "Stir-fried noodles with tender beef strips, cabbage, and carrots in savory sauce.",
+      "price": "320.00",
+      "image": "",
+      "is_available": true,
+      "is_featured": false,
+      "created_at": "2026-07-02T10:05:00Z",
+      "updated_at": "2026-07-02T10:05:00Z"
+    }
+  },
+  {
+    "model": "menu.fooditem",
+    "pk": 7,
+    "fields": {
+      "category": 2,
+      "name": "Dal Bhat Set",
+      "slug": "dal-bhat-set",
+      "description": "Traditional Nepali meal with rice, lentil soup, vegetable curry, and pickle.",
+      "price": "300.00",
+      "image": "",
+      "is_available": true,
+      "is_featured": true,
+      "created_at": "2026-07-02T10:06:00Z",
+      "updated_at": "2026-07-02T10:06:00Z"
+    }
+  },
+  {
+    "model": "menu.fooditem",
+    "pk": 8,
+    "fields": {
+      "category": 3,
+      "name": "Chocolate Lava Cake",
+      "slug": "chocolate-lava-cake",
+      "description": "Warm chocolate cake with a gooey molten center, served with vanilla ice cream.",
+      "price": "220.00",
+      "image": "",
+      "is_available": true,
+      "is_featured": true,
+      "created_at": "2026-07-02T10:07:00Z",
+      "updated_at": "2026-07-02T10:07:00Z"
+    }
+  },
+  {
+    "model": "menu.fooditem",
+    "pk": 9,
+    "fields": {
+      "category": 3,
+      "name": "Gulab Jamun",
+      "slug": "gulab-jamun",
+      "description": "Soft milk dumplings soaked in rose-flavored sugar syrup.",
+      "price": "150.00",
+      "image": "",
+      "is_available": true,
+      "is_featured": false,
+      "created_at": "2026-07-02T10:08:00Z",
+      "updated_at": "2026-07-02T10:08:00Z"
+    }
+  },
+  {
+    "model": "menu.fooditem",
+    "pk": 10,
+    "fields": {
+      "category": 4,
+      "name": "Masala Tea",
+      "slug": "masala-tea",
+      "description": "Traditional spiced milk tea, brewed fresh with cardamom, ginger, and cinnamon.",
+      "price": "60.00",
+      "image": "",
+      "is_available": true,
+      "is_featured": false,
+      "created_at": "2026-07-02T10:09:00Z",
+      "updated_at": "2026-07-02T10:09:00Z"
+    }
+  },
+  {
+    "model": "menu.fooditem",
+    "pk": 11,
+    "fields": {
+      "category": 4,
+      "name": "Fresh Lime Soda",
+      "slug": "fresh-lime-soda",
+      "description": "Refreshing sparkling soda with fresh lime juice, mint, and a hint of salt.",
+      "price": "120.00",
+      "image": "",
+      "is_available": true,
+      "is_featured": true,
+      "created_at": "2026-07-02T10:10:00Z",
+      "updated_at": "2026-07-02T10:10:00Z"
+    }
+  },
+  {
+    "model": "menu.fooditem",
+    "pk": 12,
+    "fields": {
+      "category": 4,
+      "name": "Mango Lassi",
+      "slug": "mango-lassi",
+      "description": "Creamy yogurt-based mango smoothie, sweet and refreshing.",
+      "price": "150.00",
+      "image": "",
+      "is_available": true,
+      "is_featured": false,
+      "created_at": "2026-07-02T10:11:00Z",
+      "updated_at": "2026-07-02T10:11:00Z"
+    }
+  }
+]
