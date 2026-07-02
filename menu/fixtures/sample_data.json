@@ -124,9 +124,9 @@
     "pk": 6,
     "fields": {
       "category": 2,
-      "name": "Beef Chow Mein",
-      "slug": "beef-chow-mein",
-      "description": "Stir-fried noodles with tender beef strips, cabbage, and carrots in savory sauce.",
+      "name": "Buff Chow Mein",
+      "slug": "buff-chow-mein",
+      "description": "Stir-fried noodles with tender buff strips, cabbage, and carrots in savory sauce.",
       "price": "320.00",
       "image": "",
       "is_available": true,
@@ -140,10 +140,10 @@
     "pk": 7,
     "fields": {
       "category": 2,
-      "name": "Dal Bhat Set",
-      "slug": "dal-bhat-set",
-      "description": "Traditional Nepali meal with rice, lentil soup, vegetable curry, and pickle.",
-      "price": "300.00",
+      "name": "Dal Bhat Set (Chicken)",
+      "slug": "dal-bhat-set-chicken",
+      "description": "Traditional Nepali meal with rice, lentil soup, chicken curry, and pickle.",
+      "price": "400.00",
       "image": "",
       "is_available": true,
       "is_featured": true,
@@ -154,6 +154,39 @@
   {
     "model": "menu.fooditem",
     "pk": 8,
+    "fields": {
+      "category": 2,
+      "name": "Dal Bhat Set (Veg)",
+      "slug": "dal-bhat-set-veg",
+      "description": "Traditional Nepali meal with rice, lentil soup, vegetable curry, and pickle.",
+      "price": "300.00",
+      "image": "",
+      "is_available": true,
+      "is_featured": true,
+      "created_at": "2026-07-02T10:06:00Z",
+      "updated_at": "2026-07-02T10:06:00Z"
+    }
+  },
+    
+  {
+    "model": "menu.fooditem",
+    "pk": 9,
+    "fields": {
+      "category": 2,
+      "name": "Dal Bhat Set Mutton",
+      "slug": "dal-bhat-set-mutton",
+      "description": "Traditional Nepali meal with rice, lentil soup, mutton curry, and pickle.",
+      "price": "500.00",
+      "image": "",
+      "is_available": true,
+      "is_featured": true,
+      "created_at": "2026-07-02T10:06:00Z",
+      "updated_at": "2026-07-02T10:06:00Z"
+    }
+  },
+  {
+    "model": "menu.fooditem",
+    "pk": 10,
     "fields": {
       "category": 3,
       "name": "Chocolate Lava Cake",
@@ -169,7 +202,7 @@
   },
   {
     "model": "menu.fooditem",
-    "pk": 9,
+    "pk": 11,
     "fields": {
       "category": 3,
       "name": "Gulab Jamun",
@@ -185,7 +218,7 @@
   },
   {
     "model": "menu.fooditem",
-    "pk": 10,
+    "pk": 12,
     "fields": {
       "category": 4,
       "name": "Masala Tea",
@@ -201,7 +234,7 @@
   },
   {
     "model": "menu.fooditem",
-    "pk": 11,
+    "pk": 13,
     "fields": {
       "category": 4,
       "name": "Fresh Lime Soda",
@@ -217,7 +250,7 @@
   },
   {
     "model": "menu.fooditem",
-    "pk": 12,
+    "pk": 14,
     "fields": {
       "category": 4,
       "name": "Mango Lassi",

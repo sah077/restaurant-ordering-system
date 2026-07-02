@@ -6,13 +6,17 @@ Each Order contains multiple OrderItems (a snapshot of what was purchased,
 at what price, and in what quantity — kept separate from CartItem so that
 future price changes to a FoodItem don't affect historical order records).
 """
+"""
+Models for the Orders app.
+...
+"""
 
 from django.db import models
 from django.contrib.auth.models import User
+from decimal import Decimal
 from menu.models import FoodItem
 
-DELIVERY_FEE = 100.00  # Flat delivery fee in NPR, used when creating new orders
-
+DELIVERY_FEE = Decimal('50.00')  # Flat delivery fee in NPR, used when creating new orders
 
 class Order(models.Model):
     """
@@ -25,8 +29,20 @@ class Order(models.Model):
         ('delivered', 'Delivered'),
     ]
 
+    PAYMENT_METHOD_CHOICES = [
+        ('cod', 'Cash on Delivery'),
+        ('esewa', 'eSewa'),
+    ]
+
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orders')
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
+
+    # Payment details
+    payment_method = models.CharField(max_length=20, choices=PAYMENT_METHOD_CHOICES, default='cod')
+    is_paid = models.BooleanField(
+        default=False,
+        help_text="For eSewa orders: check this box once you've confirmed the payment in your eSewa app."
+    )
 
     # Delivery details captured at checkout time
     full_name = models.CharField(max_length=150)

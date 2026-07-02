@@ -76,12 +76,20 @@
                             </a>
                         </div>
                         {% if user.is_authenticated %}
-                        <form method="POST" action="{% url 'add_to_cart' item.id %}" class="mt-2">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-warning w-100 fw-semibold">
-                                <i class="bi bi-cart-plus"></i> Add to Cart
-                            </button>
-                        </form>
+                        <div class="d-flex gap-2 mt-2">
+                            <form method="POST" action="{% url 'add_to_cart' item.id %}" class="flex-grow-1">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-outline-dark w-100 fw-semibold">
+                                    <i class="bi bi-cart-plus"></i> Add
+                                </button>
+                            </form>
+                            <form method="POST" action="{% url 'buy_now' item.id %}" class="flex-grow-1">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-warning w-100 fw-semibold">
+                                    <i class="bi bi-lightning-charge"></i> Order Now
+                                </button>
+                            </form>
+                        </div>
                         {% else %}
                         <a href="{% url 'login' %}" class="btn btn-warning w-100 fw-semibold mt-2">
                             <i class="bi bi-cart-plus"></i> Login to Order

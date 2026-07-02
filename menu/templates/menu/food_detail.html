@@ -39,15 +39,43 @@
             <h3 class="text-success fw-bold mb-4">Rs. {{ item.price }}</h3>
 
             {% if user.is_authenticated %}
-            <form method="POST" action="{% url 'add_to_cart' item.id %}" class="d-flex align-items-center gap-3">
-                {% csrf_token %}
+            <div class="d-flex align-items-center gap-3 mb-3">
                 <div style="width: 120px;">
-                    <input type="number" name="quantity" value="1" min="1" class="form-control" required>
+                    <input type="number" name="quantity" value="1" min="1" class="form-control" id="detail-quantity" required>
                 </div>
-                <button type="submit" class="btn btn-warning btn-lg fw-semibold flex-grow-1">
-                    <i class="bi bi-cart-plus"></i> Add to Cart
-                </button>
-            </form>
+                <span class="text-muted small">Quantity</span>
+            </div>
+
+            <div class="d-flex flex-column flex-sm-row gap-2">
+                <form method="POST" action="{% url 'add_to_cart' item.id %}" class="flex-grow-1 add-to-cart-form">
+                    {% csrf_token %}
+                    <input type="hidden" name="quantity" class="quantity-mirror">
+                    <button type="submit" class="btn btn-outline-dark btn-lg fw-semibold w-100">
+                        <i class="bi bi-cart-plus"></i> Add to Cart
+                    </button>
+                </form>
+
+                <form method="POST" action="{% url 'buy_now' item.id %}" class="flex-grow-1 add-to-cart-form">
+                    {% csrf_token %}
+                    <input type="hidden" name="quantity" class="quantity-mirror">
+                    <button type="submit" class="btn btn-warning btn-lg fw-semibold w-100">
+                        <i class="bi bi-lightning-charge"></i> Order Now
+                    </button>
+                </form>
+            </div>
+
+            <script>
+                // Keep both forms' hidden quantity field synced with the visible quantity input
+                document.getElementById('detail-quantity').addEventListener('input', function () {
+                    document.querySelectorAll('.quantity-mirror').forEach(function (el) {
+                        el.value = document.getElementById('detail-quantity').value;
+                    });
+                });
+                // Set initial value on page load
+                document.querySelectorAll('.quantity-mirror').forEach(function (el) {
+                    el.value = document.getElementById('detail-quantity').value;
+                });
+            </script>
             {% else %}
             <a href="{% url 'login' %}" class="btn btn-warning btn-lg fw-semibold">
                 <i class="bi bi-cart-plus"></i> Login to Order

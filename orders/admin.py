@@ -4,6 +4,7 @@ Django Admin configuration for the Orders app.
 This is the primary interface restaurant staff will use to:
 - View customer orders
 - Change order status (Pending -> Preparing -> Ready -> Delivered)
+- Confirm eSewa payments
 
 As required: "Admin: Use Django Admin only" for order management.
 """
@@ -31,14 +32,15 @@ class OrderItemInline(admin.TabularInline):
 class OrderAdmin(admin.ModelAdmin):
     list_display = (
         'id', 'user', 'full_name', 'phone_number',
-        'total_price', 'status', 'created_at'
+        'total_price', 'payment_method', 'is_paid', 'status', 'created_at'
     )
-    list_filter = ('status', 'created_at')
-    list_editable = ('status',)  # Staff can change status right from the order list
+    list_filter = ('status', 'payment_method', 'is_paid', 'created_at')
+    list_editable = ('status', 'is_paid')
     search_fields = ('user__username', 'full_name', 'phone_number')
     readonly_fields = (
         'user', 'full_name', 'phone_number', 'delivery_address',
-        'subtotal', 'delivery_fee', 'total_price', 'created_at', 'updated_at'
+        'subtotal', 'delivery_fee', 'total_price', 'payment_method',
+        'created_at', 'updated_at'
     )
     inlines = [OrderItemInline]
 
@@ -48,6 +50,10 @@ class OrderAdmin(admin.ModelAdmin):
         }),
         ('Order Status', {
             'fields': ('status',)
+        }),
+        ('Payment', {
+            'fields': ('payment_method', 'is_paid'),
+            'description': 'For eSewa orders, verify the payment in your eSewa app, then check "Is paid".'
         }),
         ('Pricing', {
             'fields': ('subtotal', 'delivery_fee', 'total_price')

@@ -41,9 +41,50 @@
                                       placeholder="House no., street, city..." required></textarea>
                         </div>
 
+             <!-- ============================= -->
+                        <!-- PAYMENT METHOD SELECTION -->
+                        <!-- ============================= -->
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold">Payment Method</label>
+
+                            <div class="form-check border rounded-3 p-3 mb-2">
+                                <input class="form-check-input" type="radio" name="payment_method"
+                                       id="payment-cod" value="cod" checked
+                                       onchange="document.getElementById('esewa-qr-box').classList.add('d-none')">
+                                <label class="form-check-label w-100" for="payment-cod">
+                                    <i class="bi bi-cash-coin text-success"></i>
+                                    <strong>Cash on Delivery</strong>
+                                    <div class="text-muted small">Pay with cash when your food arrives.</div>
+                                </label>
+                            </div>
+
+                            <div class="form-check border rounded-3 p-3">
+                                <input class="form-check-input" type="radio" name="payment_method"
+                                       id="payment-esewa" value="esewa"
+                                       onchange="document.getElementById('esewa-qr-box').classList.remove('d-none')">
+                                <label class="form-check-label w-100" for="payment-esewa">
+                                    <i class="bi bi-qr-code text-success"></i>
+                                    <strong>eSewa</strong>
+                                    <div class="text-muted small">Scan the QR code below and pay from your eSewa app.</div>
+                                </label>
+                            </div>
+
+                            <!-- eSewa QR code box - hidden until eSewa is selected -->
+                            <div id="esewa-qr-box" class="d-none text-center border rounded-3 p-4 mt-3 bg-light">
+                                <img src="{% static 'images/esewa_qr.jpg' %}" alt="eSewa QR Code"
+                                     style="max-width: 220px; width: 100%;" class="mb-2">
+                                <p class="small text-muted mb-1">Scan this code using your eSewa app</p>
+                                <p class="fw-bold mb-0">Amount to Pay: Rs. {{ total_price }}</p>
+                                <p class="small text-muted mt-2 mb-0">
+                                    <i class="bi bi-info-circle"></i>
+                                    After placing your order, complete the payment. We'll confirm it on our end shortly after.
+                                </p>
+                            </div>
+                        </div>
+
                         <div class="alert alert-info small">
                             <i class="bi bi-info-circle"></i>
-                            Payment is Cash on Delivery. Please have the exact amount ready if possible.
+                            Your order will be confirmed once placed. For eSewa, please complete payment right after ordering.
                         </div>
 
                         <button type="submit" class="btn btn-warning w-100 fw-semibold py-2">
