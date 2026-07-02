@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Checkout | TastyBite{% endblock %}
+
+{% block content %}
+
+<div class="container my-5">
+
+    <h1 class="fw-bold mb-4">
+        <i class="bi bi-bag-check"></i> Checkout
+    </h1>
+
+    <div class="row g-4">
+        <!-- ============================= -->
+        <!-- DELIVERY DETAILS FORM -->
+        <!-- ============================= -->
+        <div class="col-lg-7">
+            <div class="card shadow-sm">
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-3">Delivery Details</h5>
+
+                    <form method="POST" novalidate>
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" name="full_name" class="form-control"
+                                   value="{{ default_full_name }}" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" name="phone_number" class="form-control"
+                                   placeholder="98XXXXXXXX" required>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">Delivery Address</label>
+                            <textarea name="delivery_address" class="form-control" rows="3"
+                                      placeholder="House no., street, city..." required></textarea>
+                        </div>
+
+                        <div class="alert alert-info small">
+                            <i class="bi bi-info-circle"></i>
+                            Payment is Cash on Delivery. Please have the exact amount ready if possible.
+                        </div>
+
+                        <button type="submit" class="btn btn-warning w-100 fw-semibold py-2">
+                            <i class="bi bi-check-circle"></i> Place Order
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <a href="{% url 'cart_detail' %}" class="btn btn-outline-dark mt-3">
+                <i class="bi bi-arrow-left"></i> Back to Cart
+            </a>
+        </div>
+
+        <!-- ============================= -->
+        <!-- ORDER SUMMARY -->
+        <!-- ============================= -->
+        <div class="col-lg-5">
+            <div class="card shadow-sm">
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-3">Order Summary</h5>
+
+                    {% for cart_item in cart_items %}
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <div>
+                            <span class="fw-semibold">{{ cart_item.food_item.name }}</span>
+                            <span class="text-muted small"> x{{ cart_item.quantity }}</span>
+                        </div>
+                        <span>Rs. {{ cart_item.subtotal }}</span>
+                    </div>
+                    {% endfor %}
+
+                    <hr>
+
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="text-muted">Subtotal</span>
+                        <span>Rs. {{ subtotal }}</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="text-muted">Delivery Fee</span>
+                        <span>Rs. {{ delivery_fee }}</span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                        <strong>Total</strong>
+                        <strong class="text-success fs-5">Rs. {{ total_price }}</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

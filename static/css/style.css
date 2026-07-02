@@ -1,0 +1,142 @@
+/* ==============================================================
+   TastyBite - Custom Styles
+   These styles complement Bootstrap 5 with restaurant-specific
+   design touches: hero banner, food cards, category cards, etc.
+   ============================================================== */
+
+/* Make the page footer stick to the bottom even on short pages */
+html, body {
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ============================= */
+/* HERO BANNER (Home page)       */
+/* ============================= */
+.hero-banner {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    min-height: 60vh;
+}
+
+/* ============================= */
+/* CATEGORY CARDS (Home page)    */
+/* ============================= */
+.category-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+.category-img {
+    height: 100px;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* ============================= */
+/* FOOD CARDS (Home + Menu pages)*/
+/* ============================= */
+.food-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.food-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+}
+.food-img {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* ============================= */
+/* FOOD DETAIL PAGE IMAGE        */
+/* ============================= */
+.food-detail-img {
+    width: 100%;
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* ============================= */
+/* NAVBAR TWEAKS                 */
+/* ============================= */
+.navbar .badge {
+    position: relative;
+    top: -8px;
+    left: -4px;
+    font-size: 0.65rem;
+}
+
+/* ============================= */
+/* CART PAGE                     */
+/* ============================= */
+.cart-item-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* ============================= */
+/* AUTH PAGES (Login/Register)   */
+/* ============================= */
+.auth-card {
+    max-width: 450px;
+    margin: 60px auto;
+    border-radius: 12px;
+}
+
+/* ============================= */
+/* ORDER STATUS BADGES           */
+/* ============================= */
+.badge-pending {
+    background-color: #ffc107;
+    color: #000;
+}
+.badge-preparing {
+    background-color: #0dcaf0;
+    color: #000;
+}
+.badge-ready {
+    background-color: #6f42c1;
+    color: #fff;
+}
+.badge-delivered {
+    background-color: #198754;
+    color: #fff;
+}
+
+/* ============================= */
+/* GENERAL SPACING HELPERS       */
+/* ============================= */
+main {
+    min-height: 70vh;
+}
+
+/* ============================= */
+/* RESPONSIVE TWEAKS             */
+/* ============================= */
+@media (max-width: 576px) {
+    .hero-banner h1 {
+        font-size: 2rem;
+    }
+    .hero-banner p {
+        font-size: 1rem;
+    }
+}
