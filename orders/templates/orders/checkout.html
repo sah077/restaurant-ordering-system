@@ -32,7 +32,10 @@
                         <div class="mb-3">
                             <label class="form-label">Phone Number</label>
                             <input type="tel" name="phone_number" class="form-control"
-                                   placeholder="98XXXXXXXX" required>
+                                   placeholder="98XXXXXXXX" pattern="^(98|97)[0-9]{8}$"
+                                   maxlength="10" title="Enter a valid 10-digit Nepali mobile number starting with 98 or 97"
+                                   required>
+                            <div class="form-text">Enter a 10-digit number starting with 98 or 97 (e.g., 9812345678).</div>
                         </div>
 
                         <div class="mb-4">

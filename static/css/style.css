@@ -5,13 +5,19 @@
    ============================================================== */
 
 /* Make the page footer stick to the bottom even on short pages */
-html, body {
+html {
     height: 100%;
 }
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+main {
+    flex: 1 0 auto;
+}
+footer {
+    flex-shrink: 0;
 }
 
 /* ============================= */
@@ -125,9 +131,11 @@ body {
 /* ============================= */
 /* GENERAL SPACING HELPERS       */
 /* ============================= */
-main {
-    min-height: 70vh;
-}
+/* ============================= */
+/* GENERAL SPACING HELPERS       */
+/* ============================= */
+/* (min-height removed here — flex: 1 0 auto on main above now
+   handles pushing the footer down correctly on short pages) */
 
 /* ============================= */
 /* RESPONSIVE TWEAKS             */

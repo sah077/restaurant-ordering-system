@@ -5,6 +5,7 @@ Handles: Checkout (converts cart OR a single "Buy Now" item into an order),
 Order History, and Order Detail.
 """
 
+import re
 from types import SimpleNamespace
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
@@ -85,8 +86,12 @@ def checkout(request):
         delivery_address = request.POST.get('delivery_address', '').strip()
         payment_method = request.POST.get('payment_method', 'cod')
 
+        phone_pattern = re.compile(r'^(98|97)\d{8}$')
+
         if not full_name or not phone_number or not delivery_address:
             messages.error(request, "Please fill in all delivery details.")
+        elif not phone_pattern.match(phone_number):
+            messages.error(request, "Please enter a valid 10-digit phone number starting with 98 or 97.")
         elif payment_method not in ('cod', 'esewa'):
             messages.error(request, "Please select a valid payment method.")
         else:
