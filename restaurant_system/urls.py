@@ -28,7 +28,12 @@ urlpatterns = [
     path('orders/', include('orders.urls')),
 ]
 
-# Serve media files (uploaded food images) during development
+# Serve media files (uploaded food images).
+# Note: In a large-scale production setup, media would typically be served by
+# nginx or cloud storage (S3, Cloudinary) instead of Django directly. For this
+# project's setup (single Docker container, no separate web server), we serve
+# media through Django regardless of DEBUG so uploaded images keep working.
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += static(settings.STATIC_URL, document_root=settings.BASE_DIR / 'static')
