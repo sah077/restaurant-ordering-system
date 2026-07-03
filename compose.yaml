@@ -13,8 +13,9 @@ services:
       - .:/app
       # Persist the SQLite database file outside the container
       - sqlite_data:/app/data
-      # Persist uploaded media files (food images, category images) across restarts
-      - media_data:/app/media
+      # Directly bind-mount the host's media folder (not a Docker-managed volume)
+      # so uploaded/transferred images are immediately visible to the container
+      - ./media:/app/media
     ports:
       - "1011:1011"
     environment:
@@ -26,4 +27,3 @@ services:
 
 volumes:
   sqlite_data:
-  media_data:
