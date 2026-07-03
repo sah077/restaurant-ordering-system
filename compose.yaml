@@ -2,12 +2,11 @@
 # Docker Compose configuration for TastyBite
 # Run the whole project locally with: docker compose up --build
 # ==============================================================
-
 services:
   web:
     build: .
     container_name: tastybite_web
-   command: sh -c "python manage.py collectstatic --no-input && python manage.py migrate && gunicorn restaurant_system.wsgi:application --bind 0.0.0.0:1011 --workers 3"
+    command: sh -c "python manage.py collectstatic --no-input && python manage.py migrate && gunicorn restaurant_system.wsgi:application --bind 0.0.0.0:1011 --workers 3"
     volumes:
       # Mount the code so local changes reflect without rebuilding the image
       - .:/app
