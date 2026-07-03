@@ -7,7 +7,7 @@ services:
   web:
     build: .
     container_name: tastybite_web
-    command: sh -c "python manage.py migrate && gunicorn restaurant_system.wsgi:application --bind 0.0.0.0:1011"
+    command: sh -c "python manage.py migrate && gunicorn restaurant_system.wsgi:application --bind 0.0.0.0:1011 --workers 3"
     volumes:
       # Mount the code so local changes reflect without rebuilding the image
       - .:/app
@@ -19,7 +19,7 @@ services:
     ports:
       - "1011:1011"
     environment:
-      - DEBUG=True
+      - DEBUG=False
       - SECRET_KEY=django-insecure-change-this-key-in-production-1234567890
       - RENDER_EXTERNAL_HOSTNAME=
     env_file:
