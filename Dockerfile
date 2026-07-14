@@ -3,7 +3,7 @@
 # Base image: official Python slim image (small size, fast builds)
 # ==============================================================
 
-FROM python:3.12-slim
+FROM python:3.14-slim
 
 # Prevent Python from writing .pyc files and buffering stdout/stderr
 # (makes logs show up immediately in `docker logs`)

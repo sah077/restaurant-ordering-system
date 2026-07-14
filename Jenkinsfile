@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   environment {
-    PYTHON_VERSION = '3.12'
+    PYTHON_VERSION = '3.14'
   }
 
   stages {
@@ -15,8 +15,9 @@ pipeline {
     stage('Install dependencies') {
       steps {
         sh '''
-          # Use Python 3.12 explicitly for consistency with Docker
-          python3.12 -m venv .venv
+          set -e
+          python3 --version
+          python3 -m venv .venv
           . .venv/bin/activate
           python -m pip install --upgrade pip setuptools wheel
           python -m pip install -r requirements.txt
