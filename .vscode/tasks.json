@@ -1,0 +1,11 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Check Dockerfile Python version",
+			"type": "shell",
+			"command": "cat d:\\resturant_system\\Dockerfile",
+			"group": "none"
+		}
+	]
+}
